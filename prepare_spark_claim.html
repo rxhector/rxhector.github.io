@@ -96,12 +96,18 @@
         <p><a href="https://coil.com/p/wietse/Prepare-for-claiming-your-Spark-token-Flare-Networks-a-tool-for-XUMM-XRPToolkit/NkXJQUqpi">https://coil.com/p/wietse/Prepare-for-claiming-your-Spark-token-Flare-Networks-a-tool-for-XUMM-XRPToolkit/NkXJQUqpi</a></p>
 
     </div>
-  
+
     <div class="alert alert-dark" role="alert">
         <p>This page DOES NOT submit or save any information (you can use view source to verify)</p>
         <p>Your private key is only used to sign an encrypted transaction BEFORE it is transmitted via secure web socket</p>
         <p>Code is the ripple javascript library from <a href="https://xrpl.org/get-started.html/">https://xrpl.org/get-started.html</a></p>
-    </div>  
+    </div>
+
+
+    <div class="alert alert-success" role="alert">
+        <p>You can check <a id="checkXrpAddress" href="https://bithomp.com/explorer/XRP_ADDRESS">https://bithomp.com/explorer/XRP_ADDRESS</a> to check that messageKey is set.</p>
+    </div>    
+
 
     <div>
 
@@ -120,7 +126,7 @@
             </div> 
             
             <div class="form-group">
-                <label for="ethAddress">$ETH address</label>
+                <label for="ethAddress">$XRP address</label>
                 <input class="form-control" id="ethAddress" type="text" placeholder="0x........" />
                 <small id="formSubmitHelp" class="form-text text-muted">No details are submitted until after encryption.</small>
             </div>
@@ -239,6 +245,10 @@
 
             $( "#exampleModal" ).modal('show')
 
+            const checkXrpAddress = `https://bithomp.com/explorer/${xrpAddress}`;
+            $('#checkXrpAddress').attr('href' , checkXrpAddress );
+            $('#checkXrpAddress').text( checkXrpAddress );
+            
             await api.disconnect();
         })(mainnet);
 
